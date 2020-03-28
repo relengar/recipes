@@ -1,0 +1,1 @@
+{"version":3,"sources":["MyShoppingLists.css"],"names":[],"mappings":"AAAA,QACI,WACJ,CAEA,YACI,gBAA2B,CAC3B,sCACJ","file":"9.5ef1f99c.chunk.css","sourcesContent":[".recipe {\n    margin: 10px;\n}\n\n.ingredient {\n    margin: auto 10px auto 10px;\n    font-family: Arial, Helvetica, sans-serif;\n}"]}

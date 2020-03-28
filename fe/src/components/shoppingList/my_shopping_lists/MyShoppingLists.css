@@ -1,0 +1,8 @@
+.recipe {
+    margin: 10px;
+}
+
+.ingredient {
+    margin: auto 10px auto 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}

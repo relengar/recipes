@@ -1,0 +1,12 @@
+import Router = require("koa-router");
+
+
+const router = new Router();
+
+router.get('/', (ctx) => {
+    ctx.body = 'The recipes api'
+})
+
+export {
+    router,
+};

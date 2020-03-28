@@ -1,0 +1,1 @@
+{"version":3,"sources":["RecipesByIngredient.css","RecipeSearch.css"],"names":[],"mappings":"AAAA,sBACI,WACJ,CCFA,QACI,WAAY,CACZ,YACJ","file":"7.bd471ff4.chunk.css","sourcesContent":[".recipe-by-ingredient{\n    margin: 10px;\n}","section {\n    margin: 20px;\n    padding: 10px;\n}"]}
