@@ -1,2 +1,0 @@
-(this.webpackJsonpfe=this.webpackJsonpfe||[]).push([[10],{154:function(e,t,a){e.exports=a.p+"static/media/mr-creosote.457c0829.jpeg"},185:function(e,t,a){"use strict";a.r(t);var n=a(0),c=a.n(n),s=a(154),i=a.n(s);t.default=function(){return c.a.createElement("section",{className:"section"},c.a.createElement("div",{className:"container has-text-centered"},c.a.createElement("img",{src:i.a,alt:"Just a mint leaf"})))}}}]);
-//# sourceMappingURL=10.6a4a37e4.chunk.js.map
