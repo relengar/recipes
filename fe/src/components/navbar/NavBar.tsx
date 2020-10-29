@@ -41,6 +41,7 @@ function NavBar() {
                                     }
                                 </div>                            
                             </div>
+                            <NavLink className="navbar-item" to="/my-recipes">My Recipes</NavLink>
                             <NavLink className="navbar-item" to="/connections">Connections</NavLink>
                         </>
                     }

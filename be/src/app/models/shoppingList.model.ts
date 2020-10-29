@@ -1,7 +1,23 @@
 
-import { Schema, model } from 'mongoose';
+import { Schema, model, Document } from 'mongoose';
+import { UserInterface } from './user.model';
 
-const ingredientSchema = new Schema({
+export interface ingredientInterface extends Document {
+    apiId: number;
+    amount: number;
+    unit: string;
+    original: string;
+    amountFill: number
+}
+
+export interface shoppingListInterface {
+    recipeId: number;
+    recipeTitle: string;
+    ingredients: ingredientInterface[],
+    user: UserInterface
+}
+
+export const ingredientSchema = new Schema<ingredientInterface>({
     apiId:          { type: Number, required: true },
     amount:         { type: Number },
     unit:           { type: String },
@@ -9,7 +25,7 @@ const ingredientSchema = new Schema({
     amountFill:     { type: Number, default: 0 }
 })
 
-const shoppingListSchema = new Schema({
+const shoppingListSchema = new Schema<shoppingListInterface>({
     recipeId: {
         type: Number,
         required: true,

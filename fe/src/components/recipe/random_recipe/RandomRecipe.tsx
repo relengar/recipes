@@ -6,6 +6,7 @@ import CreateShoppingList from '../../shoppingList/create_shopping_list/CreateSh
 import { RouteComponentProps } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 import { CURRENT_USER } from '../../navbar/authModule/auth_module_query';
+import AddMyRecipeButton from '../myRecipe/addMyRecipeButton/AddMyRecipeButton';
 
 const RECIPE = gql`
     {
@@ -61,6 +62,7 @@ function RandomRecipe({history}: RouteComponentProps) {
                                                 ingredients={extendedIngredients}
                                                 submitted={(resp: any) => history.push(`/shopping-lists/${user?.currentUser.id}`)}
                                             />
+                                            <AddMyRecipeButton recipe={{id, image, title, analyzedInstructions, extendedIngredients}} />
                                         </p>
                                     }
                                 </div>

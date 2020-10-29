@@ -15,6 +15,7 @@ const friendsList = import('./components/friends/FriendsList');
 const myShoppingLists = import('./components/shoppingList/my_shopping_lists/MyShoppingLists');
 const viewShoppingList = import('./components/shoppingList/view_shopping_list/ViewShoppingList');
 const recipeSearch = import('./components/recipe/recipe_search/RecipeSearch');
+const myRecipeList = import ('./components/recipe/myRecipe/MyRecipesList/MyRecipesList')
 
 const Landing = lazy(() => landingPreload);
 const RecipeView = lazy(() => recipeViewPreload);
@@ -23,6 +24,7 @@ const FriendsList = lazy(() => friendsList);
 const MyShoppingLists = lazy(() => myShoppingLists);
 const ViewShoppingList = lazy(() => viewShoppingList);
 const RecipeSearch = lazy(() => recipeSearch);
+const MyRecipeList = lazy(() => myRecipeList)
 
 const cache = new InMemoryCache({
   fragmentMatcher: new IntrospectionFragmentMatcher({})
@@ -55,6 +57,7 @@ function App () {
             <Route exact path='/recipe/:id' component={RecipeView} />
             <Route exact path='/shopping-list/:id' component={ViewShoppingList} />
             <Route exact path='/connections' component={FriendsList} />
+            <Route exact path='/my-recipes' component={MyRecipeList}/>
           </Switch>
         </Suspense>
       </BrowserRouter>

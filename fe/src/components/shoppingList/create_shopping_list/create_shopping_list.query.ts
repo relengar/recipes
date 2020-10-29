@@ -6,12 +6,12 @@ mutation CreateShoppingList(
     $recipeId: Int!
     $ingredients: [IngredientInput!]!
 ) {
-createShoppingList(
-    recipeId: $recipeId,
-    recipeTitle: $recipeTitle,
-    ingredients: $ingredients
-){
-  id,
-}
+  createShoppingList(
+      recipeId: $recipeId,
+      recipeTitle: $recipeTitle,
+      ingredients: $ingredients
+  ){
+    id,
+  }
 }
 `

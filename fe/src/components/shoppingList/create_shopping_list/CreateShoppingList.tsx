@@ -20,7 +20,7 @@ interface ShoppingListIngredient {
     unit: string;
 }
 
-function processInput<T>(object: T): Partial<T> {
+function processInput<T>(object: T): {[k: string]: Partial<T>} {
     return Object.fromEntries(Object.entries(object).filter(([key]) => key !== '__typename'));
 }
 

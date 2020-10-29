@@ -1,5 +1,6 @@
 import { UserInterface } from "../models/user.model";
 import { ApolloError } from "apollo-server-koa";
+import * as _ from 'lodash'
 
 export default {
     Query: {
@@ -12,8 +13,8 @@ export default {
         return user ? users.filter(({id}) => id !== user.id) : users;
       },
       myConnections: async (parent, data, { models: { userModel }, user }) => {
-        const me = await userModel.findById('5e6cc4ade5aab0504c629029').populate('friends', ['name', 'id'])
-        return me.friends
+        const me = await userModel.findById(user?.id).populate('friends', ['name', 'id'])
+        return me?.friends ?? []
       }
     },
     Mutation: {
@@ -43,6 +44,7 @@ export default {
         }
 
         me.friends = [ ...me.friends, friend ];
+
         await me.save();
         return true;
       },
@@ -59,7 +61,19 @@ export default {
         me.friends = me.friends.filter((friend: string) => friend.toString() !== userId.toString());
         await me.save()
         return true;
-      }
+      },
+      // toggleLikeRecipe: async (parent, { recipeId }, { user, models: { userModel } }) => {
+      //   const myDbRecord: UserInterface = user && await userModel.findById(user?.id)
+      //   if (!user?.id || !myDbRecord) {
+      //     throw new ApolloError(`No user found with this id`, '403');
+      //   }
+        
+      //   const isFavorite = myDbRecord.favoriteRecipes.some(id => id === recipeId)
+      //   isFavorite ? _.remove(myDbRecord.favoriteRecipes, id => id === recipeId) : myDbRecord.favoriteRecipes.push(recipeId)
+
+      //   await myDbRecord.save()
+      //   return myDbRecord.favoriteRecipes;
+      // }
     },
     // User: {
     //   posts: async ({ id }, args, { models: { postModel } }, info) => {

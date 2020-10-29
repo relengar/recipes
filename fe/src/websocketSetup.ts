@@ -4,8 +4,8 @@ import { HttpLink } from 'apollo-link-http';
 import { getMainDefinition } from 'apollo-utilities';
 
 const ssl = process.env.SSL_ENABLED ? 's' : '';
-const uri = process.env.API_URL_DOMAIN ? `http${ssl}://${process.env.API_URL_DOMAIN}/graphql` : 'http://localhost:3000/graphql';
-const wsUri = process.env.API_URL_DOMAIN ? `ws${ssl}://${process.env.API_URL_DOMAIN}/graphql` : 'ws://localhost:3000/graphql';
+const uri = process.env.API_URL_DOMAIN ? `http${ssl}://${process.env.API_URL_DOMAIN}/graphql` : 'http://localhost:5000/graphql';
+const wsUri = process.env.API_URL_DOMAIN ? `ws${ssl}://${process.env.API_URL_DOMAIN}/graphql` : 'ws://localhost:5000/graphql';
 
 
 const wsLink = new WebSocketLink({

@@ -20,6 +20,15 @@ export class AuthService {
         return user as UserInterface;
     }
 
+    public async getDbRecord(userId: string): Promise<UserInterface> {
+        const user = await userModel.findById(userId);
+        if (!user) {
+            throw new ApolloError('Unauthorized', '403')
+        }
+
+        return user;
+    }
+
     public async logIn(ctx: Context, username: string, password: string): Promise<UserInterface> {
         const user = await userModel.findOne({name: username});
         if (!user) {

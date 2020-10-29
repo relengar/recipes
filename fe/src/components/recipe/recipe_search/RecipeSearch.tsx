@@ -3,7 +3,6 @@ import RecipesByIngredient from './recipes_by_ingredient/RecipesByIngredient';
 import './RecipeSearch.css'
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
-import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useQuery, useLazyQuery, useMutation } from '@apollo/react-hooks';
 import { GET_CACHED_INPUT, SET_CACHE, AUTOCOMPLETE, SEARCH } from './queries'
@@ -63,8 +62,10 @@ function RecipeSearch() {
                                 id="ingredient"
                                 disableClearable
                                 multiple
-                                value={formik.values.ingredients ? formik.values.ingredients : []}
-                                filterOptions={options => options.filter(option => !formik.values.ingredients || !formik.values.ingredients.some(o => o === option))}
+                                defaultValue={formik.values.ingredients ? formik.values.ingredients : []}
+                                filterOptions={options => {
+                                    return options.filter(option => !formik.values.ingredients || !formik.values.ingredients.some(opt => opt === option))
+                                }}
                                 options={setOptions(loading, (variables as { query: string }), ingredients)}
                                 renderInput={params => (
                                     <TextField
@@ -78,7 +79,7 @@ function RecipeSearch() {
                                         InputProps={{ ...params.InputProps, type: 'search' }}
                                     ></TextField>
                                 )}
-                                renderOption={(option: any) => (
+                                renderOption={option => (
                                     <React.Fragment>
                                         <div id="ingredients">{option}</div>
                                     </React.Fragment>

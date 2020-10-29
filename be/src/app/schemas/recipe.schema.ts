@@ -11,6 +11,15 @@ export default gql`
         extendedIngredients: [Ingredient]
     }
 
+    input CreateRecipeInput {
+        title: String!
+        image: String!
+        readyInMinutes: Int
+        instructions: String
+        analyzedInstructions: [InstructionsInput!]!
+        extendedIngredients: [IngredientInput]
+    }
+
     type Ingredient {
         id: ID!
         name: String!
@@ -26,11 +35,21 @@ export default gql`
         steps: [Step!]!
     }
 
+    input InstructionsInput {
+        name: String
+        steps: [StepInput!]!
+    }
+
     type Step {
         number: Int!
         step: String!
         ingredients: StepIngredient
         length: StepLength!
+    }
+
+    input StepInput {
+        number: Int!
+        step: String!
     }
 
     type StepIngredient {
@@ -63,5 +82,11 @@ export default gql`
         recipesByIngredients(ingredients: [String!]!): [RecipePreview!]
         recipeById(recipeId: Int!): Recipe!
         predictIngredient(query: String!): [IngredientPreview!]
+        myRecipes: [Recipe]
+    }
+
+    extend type Mutation {
+        addMyRecipe(recipe: CreateRecipeInput!): [Recipe!]
+        removeRecipe(recipeId: String!): Boolean!
     }
 `

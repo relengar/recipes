@@ -4,3 +4,4 @@ be/node_modules
 be/.env
 */.DS_Store
 *.key.*
+todo.md

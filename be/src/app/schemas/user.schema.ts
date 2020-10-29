@@ -6,6 +6,7 @@ export default gql`
         name: String!
         profilePicUrl: String!
         friends: [User]
+        favoriteRecipes: [Recipe!]
     }
 
     type Token {
@@ -25,5 +26,6 @@ export default gql`
       logOut: Boolean
       addFriend(userId: String!): Boolean
       removeFriend(userId: String!): Boolean
+      toggleLikeRecipe(recipeId: String!): [String]
     }
 `
