@@ -72,7 +72,6 @@ function AddMyRecipeButton({ recipe }: AddMyRecipeButtonProps) {
     //     }],
     // }
     recipe = transformRecipe(recipe);
-    console.log(recipe);
 
     return (
         <>
