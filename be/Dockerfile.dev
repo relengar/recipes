@@ -1,13 +1,15 @@
 FROM node:lts-slim
 
-# WORKDIR /usr/src/app
+USER root
+RUN apt-get update || : && apt-get install python -y make g++
+
 WORKDIR /home/node/app
 
 COPY package.json . 
 COPY package-lock.json . 
-RUN npm ci
 
 COPY . .
+RUN npm ci
 
 RUN npm run build
 
