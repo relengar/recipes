@@ -4,13 +4,11 @@ import * as logger from "koa-logger";
 import { connectDB } from "./database";
 import * as dotenv from "dotenv";
 dotenv.config();
-import { router } from "./app/router";
 import { ApolloError, ApolloServer } from "apollo-server-koa";
 import { buildSchema } from "type-graphql";
 import { RecipeResolver } from "./app/spoontacular/resolvers/recipe-typed.resolver";
 import { Container } from "typedi";
 import { UserResolver } from "./app/user/resolvers/user.resolver";
-import * as session from "koa-session";
 import { ShoppingListResolver } from "./app/shoppingList/resolvers/shopping-list.resolver";
 
 const PORT = process.env.PORT || 3000;
@@ -61,7 +59,6 @@ async function bootstrap() {
   app.keys = [process.env.COOKIE_SECRET];
 
   app.use(logger());
-  app.use(router.routes()).use(router.allowedMethods());
 
   const appServer = app.listen(PORT, () =>
     console.log(`Listening on port ${PORT}`)
