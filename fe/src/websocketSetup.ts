@@ -1,6 +1,6 @@
 import { WebSocketLink } from "apollo-link-ws";
 import { split } from "apollo-link";
-import { HttpLink } from "apollo-link-http";
+import { HttpLink, createHttpLink } from "apollo-link-http";
 import { getMainDefinition } from "apollo-utilities";
 
 const ssl = process.env.SSL_ENABLED ? "s" : "";
@@ -18,10 +18,12 @@ const wsLink = new WebSocketLink({
   },
 });
 
-const httpLink = new HttpLink({
-  uri,
-  credentials: "include",
-});
+// const httpLink = new HttpLink({
+//   uri,
+//   credentials: "include",
+// });
+
+const httpLink = createHttpLink({ uri, credentials: "include" });
 
 export const link = split(
   ({ query }) => {

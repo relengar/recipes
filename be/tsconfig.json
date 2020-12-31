@@ -1,21 +1,17 @@
 {
-    "compilerOptions": {
-       "target": "ES2020",
-       "module": "commonjs",
-       "moduleResolution": "node",
-       "outDir": "./dist",
-       "emitDecoratorMetadata": true,
-       "experimentalDecorators": true,
-       "sourceMap": true,
-       "baseUrl": "./",
-       "allowSyntheticDefaultImports": true
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2018", "ESNext.AsyncIterable"]
     //    "esModuleInterop": true
-    },
-    "include": [
-        "./src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
- }
- 
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
